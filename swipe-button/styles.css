@@ -32,20 +32,21 @@ body{
 .anime > p {
     font-size: 2em;
     font-weight: bold;
-    color: rgb(56, 55, 55);
 }
 
 .anime:nth-child(1){
-    background-color: rgb(119, 208, 243);
-   
+    background-color: rgb(24, 138, 184);
+    color: rgb(238, 235, 235);
 }
 
 .anime:nth-child(2){
-    background-color: rgb(241, 243, 144);
+    background-color: rgb(58, 58, 56);
+    color: rgb(238, 235, 235);
 }
 
 .anime:nth-child(3){
-    background-color: rgb(151, 194, 137);
+    background-color: rgb(247, 208, 164);
+    color: rgb(49, 49, 49);
 }
 
 .button-right{ 
