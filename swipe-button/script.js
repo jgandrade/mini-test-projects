@@ -3,43 +3,46 @@ let buttonRight = document.querySelector('.button-right');
 let anime = document.querySelectorAll('.anime');
 let animeImg = document.querySelectorAll('.anime-img');
 
-buttonLeft.addEventListener('click', currentSlideUp);
-buttonRight.addEventListener('click', currentSlideDown);
+buttonLeft.addEventListener('click', () => currentSlide('up'));
+buttonRight.addEventListener('click', () => currentSlide('down'));
 
 let current = 0;
 
-function currentSlideUp() {
-    if (current === 0) {
-        loop(100);
+function currentSlide(button) {
+    if (button === 'up') {
+        if (current == 0) {
+            translate(100);
+            current++;
+        }
+        else if (current == 1) {
+            translate(200);
+            current++;
+        }
+        else {
+            translate(0);
+            current = 0;
+        }
     }
-    else if (current === 1) {
-        loop(200);
-    } else {
-        current = 0;
-        return loop(0);
-    }
-    return current++;
-}
-
-function currentSlideDown() {
-    if (current === 0) {
-        loop(0);
-    }
-    else if (current === 1) {
-        loop(200);
-    } else {
-        current = 0;
-        return loop(100);
-    }
-    return current++;
-}
-
-function loop(multiplier) {
-    for (let i = current; i < anime.length; i++) {
-        anime[i].style.transform = `translate(0%, -${multiplier}%)`;
-        animeImg[i].style.transform = `translate(0%, ${multiplier}%)`;
+    else if (button === 'down') {
+        if (current == 0) {
+            translate(200);
+            current = 2;
+        }
+        else if (current == 1) {
+            translate(0);
+            current--;
+        }
+        else if (current == 2) {
+            translate(100);
+            current--;
+        }
     }
 }
 
-
+function translate(percentage) {
+    for (let i = 0; i < anime.length; i++) {
+        anime[i].style.transform = `translateY(-${percentage}%)`
+        animeImg[i].style.transform = `translateY(${percentage}%)`
+    }
+}
 
